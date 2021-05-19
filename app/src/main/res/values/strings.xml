@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Shopgiay</string>
+    <string name="home">Home</string>
+    <string name="thongbao">Thông báo</string>
+    <string name="giohang">Giỏ hàng</string>
+    <string name="canhan">Cá nhân</string>
+</resources>
