@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BEC2D8"
-    tools:context=".Trangchu">
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpger"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/navl"
-        >
+    android:paddingTop="5dp">
     <ImageView
         android:layout_width="50dp"
         android:layout_height="47dp"
@@ -100,25 +92,12 @@
 
     </LinearLayout>
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/listt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:layout_marginBottom="55dp"
         android:background="#B6B1AF"/>
 
 
 
- </androidx.viewpager.widget.ViewPager>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#6C1235"
-        app:menu="@menu/menu_bottom"
-        app:itemIconTint="#89AF67"
-        app:itemTextColor="#93886B"/>
-
-
-</RelativeLayout>
+</FrameLayout>
