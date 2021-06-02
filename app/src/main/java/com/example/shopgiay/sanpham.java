@@ -1,6 +1,8 @@
 package com.example.shopgiay;
 
-public class sanpham {
+import java.io.Serializable;
+
+public class sanpham implements Serializable {
      int ID ;
      String Ten_sp ;
      String Hang_sp ;

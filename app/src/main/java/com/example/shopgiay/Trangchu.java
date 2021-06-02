@@ -3,6 +3,7 @@ package com.example.shopgiay;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
@@ -22,22 +23,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Trangchu extends AppCompatActivity {
-    ListView list ;
-    ArrayList<sanpham> arrayList = new ArrayList<>();;
-    list_sp product ;
+public class Trangchu extends AppCompatActivity  {
     private BottomNavigationView nav;
     private ViewPager ViewP ;
-    connection db = new connection(this,"DACshop.sqlite" , null, 1);
+    connection conn;
+       connection db = new connection(this,"shopgiay.sqlite" , null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trangchu);
-        product = new list_sp(this, R.layout.listviewtt, arrayList);
-        list = findViewById(R.id.list);
-        list.setAdapter(product);
-        loadata();
         nav = findViewById(R.id.navl);
         ViewP = findViewById(R.id.viewpger);
         LoadViewpager();
@@ -46,6 +41,7 @@ public class Trangchu extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.H :
+
                         ViewP.setCurrentItem(0);
                         break;
 
@@ -99,28 +95,5 @@ public class Trangchu extends AppCompatActivity {
             }
         });
 
-    }
-
-    public  void loadata(){
-        db.QueryData("CREATE TABLE IF NOT EXISTS sanpham" +
-                "(ID INTEGER PRIMARY KEY AUTOINCREMENT , Ten_sp VARCHAR , Hang_sp VARCHAR ,Thongt_sp VARCHAR ,Size INTEGER , Soluong INTEGER,Gia INTEGER ,Img VARCHAR )");
-//        db.QueryData("INSERT INTO sanpham VALUES(null,'nike1','nike','hàng đẹp',42,30,500000,'344334')");
-//        db.QueryData("INSERT INTO sanpham VALUES(null,'nike2','nike','hàng đẹp',41,30,500000,'344343534')");
-//        db.QueryData("INSERT INTO sanpham VALUES(null,'nike3','nike','hàng đẹp',43,30,550000,'3443435343434')");
-
-        Cursor cursorSP = db.getData("SELECT * FROM sanpham");
-        while (cursorSP.moveToNext()){
-           int id = cursorSP.getInt(0);
-           String ten = cursorSP.getString(1);
-           String hang = cursorSP.getString(2);
-           String thongtin = cursorSP.getString(3);
-           int size = cursorSP.getInt(4);
-           int soluong = cursorSP.getInt(5);
-            int gia = cursorSP.getInt(6);
-           String img = cursorSP.getString(7);
-            sanpham sp = new sanpham(id, ten, hang, thongtin, size, soluong, gia, img);
-           arrayList.add(sp);
-        }
-        product.notifyDataSetChanged();
     }
 }
