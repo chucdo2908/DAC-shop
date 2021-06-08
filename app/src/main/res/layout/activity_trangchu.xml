@@ -18,10 +18,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#6C1235"
+        android:background="#FF9190"
         app:menu="@menu/menu_bottom"
-        app:itemIconTint="#89AF67"
-        app:itemTextColor="#93886B"/>
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"/>
 
 
 </RelativeLayout>

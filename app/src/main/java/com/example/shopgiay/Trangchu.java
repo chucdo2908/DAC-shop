@@ -27,7 +27,6 @@ public class Trangchu extends AppCompatActivity  {
     private BottomNavigationView nav;
     private ViewPager ViewP ;
     connection conn;
-       connection db = new connection(this,"shopgiay.sqlite" , null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

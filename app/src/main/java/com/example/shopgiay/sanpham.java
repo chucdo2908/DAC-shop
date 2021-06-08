@@ -12,6 +12,9 @@ public class sanpham implements Serializable {
      float Gia ;
      String img;
 
+    public sanpham() {
+    }
+
     public sanpham(int ID, String ten_sp, String hang_sp, String thongt_sp, int size, int soluong, float gia, String img) {
         this.ID = ID;
         Ten_sp = ten_sp;
@@ -85,8 +88,5 @@ public class sanpham implements Serializable {
 
     public void setImg(String img) {
         this.img = img;
-    }
-
-    public sanpham() {
     }
 }

@@ -53,14 +53,6 @@
         android:layout_height="wrap_content"
         android:paddingTop="50dp">
 
-        <Button
-            android:id="@+id/main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Trang chủ"
-            android:gravity="center"
-            />
-            />
     </LinearLayout>
 
 
