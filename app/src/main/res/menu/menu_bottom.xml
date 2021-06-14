@@ -9,7 +9,7 @@
         android:icon="@mipmap/home"/>
     <item android:id="@+id/GH"
         android:title="Giỏ hàng"
-        android:icon="@mipmap/home"/>
+        android:icon="@mipmap/icon_cart"/>
     <item android:id="@+id/CN"
         android:title="Cá nhân"
         android:icon="@mipmap/home"/>

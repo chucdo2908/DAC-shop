@@ -3,6 +3,7 @@
     package="com.example.shopgiay">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".dangnhap_dangky"></activity>
+        <activity android:name=".Thongtin_cn"></activity>
+        <activity android:name=".Dangky_user" />
+        <activity android:name=".dangnhap_dangky" />
         <activity android:name=".Trangchu" />
         <activity android:name=".MainActivity">
             <intent-filter>

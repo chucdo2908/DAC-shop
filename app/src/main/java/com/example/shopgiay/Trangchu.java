@@ -2,11 +2,13 @@ package com.example.shopgiay;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -26,12 +28,14 @@ import java.util.ArrayList;
 public class Trangchu extends AppCompatActivity  {
     private BottomNavigationView nav;
     private ViewPager ViewP ;
-    connection conn;
-
+    String TK ;
+    int id_tt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trangchu);
+        Intent i = getIntent();
+        TK = i.getStringExtra("ten_tk");
         nav = findViewById(R.id.navl);
         ViewP = findViewById(R.id.viewpger);
         LoadViewpager();
@@ -40,10 +44,8 @@ public class Trangchu extends AppCompatActivity  {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.H :
-
                         ViewP.setCurrentItem(0);
                         break;
-
                     case R.id.TB :
                         ViewP.setCurrentItem(1);
                         break;
@@ -52,6 +54,7 @@ public class Trangchu extends AppCompatActivity  {
                         break;
                     case R.id.CN :
                         ViewP.setCurrentItem(3);
+                        String tk = TK;
                         break;
                 }
                 return true;
@@ -93,6 +96,6 @@ public class Trangchu extends AppCompatActivity  {
 
             }
         });
-
     }
+
 }
