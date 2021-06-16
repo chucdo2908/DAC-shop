@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="#FFE5D8"
-    tools:context=".Thongtin_cn">
+    tools:context=".XemthongtinUsers">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,16 +15,15 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="30dp"
-            android:text="Nhập tên : "
+            android:text="Tên : "
             android:textStyle="normal"
             android:textSize="20dp"
             android:textColor="@color/black"/>
-        <EditText
-            android:id="@+id/Ten"
+        <TextView
+            android:id="@+id/Ten_use"
             android:layout_width="270dp"
             android:layout_height="30dp"
-            android:hint="Nhập tên...."
-            android:background="@drawable/bg_cho"
+            android:background="#AC882E"
             android:textColor="@color/black"/>
     </LinearLayout>
     <LinearLayout
@@ -39,12 +38,11 @@
             android:textStyle="normal"
             android:textSize="20dp"
             android:textColor="@color/black"/>
-        <EditText
-            android:id="@+id/diachi"
+        <TextView
+            android:id="@+id/diachi_use"
             android:layout_width="270dp"
             android:layout_height="30dp"
-            android:hint="Nhập địa chỉ...."
-            android:background="@drawable/bg_cho"
+            android:background="#AC882E"
             android:textColor="@color/black"/>
     </LinearLayout>
     <LinearLayout
@@ -59,12 +57,11 @@
             android:textStyle="normal"
             android:textSize="20dp"
             android:textColor="@color/black"/>
-        <EditText
-            android:id="@+id/SDT"
+        <TextView
+            android:id="@+id/sdt_use"
             android:layout_width="270dp"
             android:layout_height="30dp"
-            android:hint="Nhập số điện thoại...."
-            android:background="@drawable/bg_cho"
+            android:background="#AC882E"
             android:textColor="@color/black"/>
     </LinearLayout>
     <LinearLayout
@@ -79,28 +76,38 @@
             android:textStyle="normal"
             android:textSize="20dp"
             android:textColor="@color/black"/>
-        <EditText
-            android:id="@+id/ngaysinh"
+        <TextView
+            android:id="@+id/ngaysinh_use"
             android:layout_width="270dp"
             android:layout_height="30dp"
-            android:hint="Nhập ngày sinh...."
-            android:background="@drawable/bg_cho"
+            android:background="#AC882E"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Tên TK : "
+            android:textStyle="normal"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/taikhoan_use"
+            android:layout_width="270dp"
+            android:layout_height="30dp"
+            android:background="#AC882E"
             android:textColor="@color/black"/>
     </LinearLayout>
     <Button
-        android:id="@+id/quayve"
+        android:id="@+id/xacnhan_use"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quay lại"
+        android:text="Xác Nhận"
         android:background="@drawable/bg_tt"
-        android:layout_marginTop="290dp"
-        android:layout_marginLeft="20dp"/>
-    <Button
-        android:id="@+id/xacnhan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cập nhật"
-        android:background="@drawable/bg_tt"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="320dp"
         android:layout_marginLeft="290dp"/>
 </RelativeLayout>

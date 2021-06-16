@@ -60,7 +60,42 @@ public class Fragment_home extends Fragment    {
         circleIndicator.setViewPager(viewpager);
         adapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
         autoslide();
-
+        // load danh sach san pham
+        connection conn = new connection(getContext(),"DACshop",null,1);
+        conn.QueryData("CREATE TABLE IF NOT EXISTS SP" +
+                "(ID INTEGER PRIMARY KEY AUTOINCREMENT , Ten_sp VARCHAR ," +
+                " Hang_sp VARCHAR ,Thongt_sp VARCHAR ,Size INTEGER , Soluong INTEGER,Gia INTEGER ,Img BLOB )");
+        trangchu = (Trangchu) getActivity();
+        list = view.findViewById(R.id.listt);
+        arrayList = new ArrayList<sanpham>();
+        product = new list_sp(getActivity(), R.layout.listviewtt , arrayList);
+        list.setAdapter(product);
+        //      conn.QueryData("INSERT INTO SP VALUES(null,'ADIDAS YEEZY 350 V2','Adidas','hàng đẹp',42,
+        //      30,600000,'https://giaygiare.vn/upload/sanpham/thumbs/adidas-yeezy-350-v2-sand-taupe-1-1.jpg')");
+//        conn.QueryData("INSERT INTO SP VALUES(null,'Nike Air Jordan 1 Mid','Nike','Có thể nói, mặc dù sự kết hợp giữa hai tone màu trung tính đen – trắng với tone màu đỏ ấm nóng không phải chưa từng xuất hiện trên các mẫu thiết kế của Nike Jordan nhưng bản phối lần này vẫn khiến khá nhiều người thích thú.\n" +
+//                "\n" +
+//                "Điểm nhấn của bản phối này chính là sự quay trở lại của tone màu đỏ rực rỡ trên dấu Swoosh và logo bóng rổ Jumpman. So với biểu tượng màu đen quen thuộc thì độ nổi bật và sức hút của tone màu này cao hơn rất nhiều.',40, 30,1000000,'https://shopgiayreplica.com/wp-content/uploads/2021/04/Jordan-1-Mid-Black-Chile-Red-White-800x600.jpg')");
+        Cursor cursorSP = conn.GetData("SELECT * FROM SP");
+        while (cursorSP.moveToNext()){
+            int id = cursorSP.getInt(0);
+            String ten = cursorSP.getString(1);
+            String hang = cursorSP.getString(2);
+            String thongtin = cursorSP.getString(3);
+            int size = cursorSP.getInt(4);
+            int soluong = cursorSP.getInt(5);
+            int gia = cursorSP.getInt(6);
+            String img = cursorSP.getString(7);
+            sanpham sp = new sanpham(id, ten, hang, thongtin, size, soluong, gia, img);
+            arrayList.add(sp);
+        }
+        product.notifyDataSetChanged();
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                view.setBackgroundResource(R.drawable.bg_tt);
+                Toast.makeText(getActivity(),arrayList.get(position).Ten_sp ,Toast.LENGTH_SHORT).show();
+            }
+        });
         //chức năng
         sapxep = view.findViewById(R.id.sapxep);
         danhsach = view.findViewById(R.id.danhsach);
@@ -93,19 +128,11 @@ public class Fragment_home extends Fragment    {
                 String tk = E_timkiem.getText().toString();
                 if(tk.equals("")){
                     //load dữ liệu trang chủ
-                    connection conn = new connection(getContext(),"DACshop",null,1);
                     trangchu = (Trangchu) getActivity();
                     list = view.findViewById(R.id.listt);
                     arrayList = new ArrayList<sanpham>();
                     product = new list_sp(getActivity(), R.layout.listviewtt , arrayList);
                     list.setAdapter(product);
-
-//       conn.QueryData("CREATE TABLE IF NOT EXISTS SP" +
-//               "(ID INTEGER PRIMARY KEY AUTOINCREMENT , Ten_sp VARCHAR , Hang_sp VARCHAR ,Thongt_sp VARCHAR ,Size INTEGER , Soluong INTEGER,Gia INTEGER ,Img BLOB )");
-//   //    conn.QueryData("INSERT INTO SP VALUES(null,'nike2','nike','hàng đẹp',42,30,500000,1)");
-//    conn.QueryData("INSERT INTO SP VALUES(null,'MLB1','MLB','hàng đẹp',41,30,500000,'R.drawable.mlb.jpg')");
-//      conn.QueryData("INSERT INTO SP VALUES(null,'ADIDAS YEEZY 350 V2','Adidas','hàng đẹp',42,30,600000,'https://giaygiare.vn/upload/sanpham/thumbs/adidas-yeezy-350-v2-sand-taupe-1-1.jpg')");
-
                     Cursor cursorSP = conn.GetData("SELECT * FROM SP");
                     while (cursorSP.moveToNext()){
                         int id = cursorSP.getInt(0);
@@ -120,7 +147,6 @@ public class Fragment_home extends Fragment    {
                         arrayList.add(sp);
                     }
                     product.notifyDataSetChanged();
-////        init();
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -130,6 +156,7 @@ public class Fragment_home extends Fragment    {
                     });
                     timkiem.setBackgroundResource(R.drawable.bg_cho);
                 }else {
+                    timkiem.setBackgroundResource(R.drawable.bg_cho);
                     connection conn = new connection(getContext(),"DACshop",null,1);
                     trangchu = (Trangchu) getActivity();
                     list = view.findViewById(R.id.listt);
@@ -150,7 +177,13 @@ public class Fragment_home extends Fragment    {
                         arrayList.add(sp);
                     }
                     product.notifyDataSetChanged();
-                    timkiem.setBackgroundResource(R.drawable.bg_cho);
+                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            view.setBackgroundResource(R.drawable.bg_tt);
+                            Toast.makeText(getActivity(),arrayList.get(position).Ten_sp ,Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
 
 
@@ -159,41 +192,6 @@ public class Fragment_home extends Fragment    {
         });
 
         //load dữ liệu trang chủ
-        connection conn = new connection(getContext(),"DACshop",null,1);
-        trangchu = (Trangchu) getActivity();
-        list = view.findViewById(R.id.listt);
-        arrayList = new ArrayList<sanpham>();
-        product = new list_sp(getActivity(), R.layout.listviewtt , arrayList);
-        list.setAdapter(product);
-
-//       conn.QueryData("CREATE TABLE IF NOT EXISTS SP" +
-//               "(ID INTEGER PRIMARY KEY AUTOINCREMENT , Ten_sp VARCHAR , Hang_sp VARCHAR ,Thongt_sp VARCHAR ,Size INTEGER , Soluong INTEGER,Gia INTEGER ,Img BLOB )");
-//   //    conn.QueryData("INSERT INTO SP VALUES(null,'nike2','nike','hàng đẹp',42,30,500000,1)");
-//    conn.QueryData("INSERT INTO SP VALUES(null,'MLB1','MLB','hàng đẹp',41,30,500000,'R.drawable.mlb.jpg')");
-//      conn.QueryData("INSERT INTO SP VALUES(null,'ADIDAS YEEZY 350 V2','Adidas','hàng đẹp',42,30,600000,'https://giaygiare.vn/upload/sanpham/thumbs/adidas-yeezy-350-v2-sand-taupe-1-1.jpg')");
-
-       Cursor cursorSP = conn.GetData("SELECT * FROM SP");
-       while (cursorSP.moveToNext()){
-           int id = cursorSP.getInt(0);
-          String ten = cursorSP.getString(1);
-           String hang = cursorSP.getString(2);
-           String thongtin = cursorSP.getString(3);
-           int size = cursorSP.getInt(4);
-           int soluong = cursorSP.getInt(5);
-           int gia = cursorSP.getInt(6);
-           String img = cursorSP.getString(7);
-           sanpham sp = new sanpham(id, ten, hang, thongtin, size, soluong, gia, img);
-           arrayList.add(sp);
-      }
-      product.notifyDataSetChanged();
-////        init();
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                view.setBackgroundResource(R.drawable.bg_tt);
-                Toast.makeText(getActivity(),arrayList.get(position).Ten_sp ,Toast.LENGTH_SHORT).show();
-            }
-        });
         return view;
     }
     private List<slide> getListphoto(){

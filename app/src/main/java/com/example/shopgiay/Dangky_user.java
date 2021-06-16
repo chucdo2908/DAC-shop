@@ -3,6 +3,7 @@ package com.example.shopgiay;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ public class Dangky_user extends AppCompatActivity {
     private EditText dk_tk ,dk_mk , NL_mk;
     private TextView quaylai;
     private Button xacnhan;
+    private String kt_tk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +43,30 @@ public class Dangky_user extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"chưa nhập đủ thông tin !!",Toast.LENGTH_SHORT).show();
                 }else if (!mk.toString().equals(nl_mk.toString())){
                     Toast.makeText(getApplicationContext(),"Mật khẩu không khớp !!",Toast.LENGTH_SHORT).show();
-                }else{
-                    try {
-                        conn.QueryUser( tk, mk);
-                        Toast.makeText(getApplicationContext(),"Đăng kí thành công !!",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(),dangnhap_dangky.class);
-                        startActivity(intent);
-                    } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                }else {
+                    Cursor cursor = conn.GetData("SELECT * FROM TK_User");
+                    if (cursor.getCount() != 0) {
+                        while (cursor.moveToNext()) {
+                            kt_tk = cursor.getString(1);
+                        }
+                        if (tk.equals(kt_tk)) {
+                            Toast.makeText(getApplicationContext(), "Tên tài khoản đã tồn tại !!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            conn.QueryUser(tk, mk);
+                            Toast.makeText(getApplicationContext(), "Đăng kí thành công !!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), dangnhap_dangky.class);
+                            startActivity(intent);
+                        }
+
+                    } else {
+                        try {
+                            conn.QueryUser(tk, mk);
+                            Toast.makeText(getApplicationContext(), "Đăng kí thành công !!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), dangnhap_dangky.class);
+                            startActivity(intent);
+                        } catch (Exception e) {
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                        }
                     }
 
 

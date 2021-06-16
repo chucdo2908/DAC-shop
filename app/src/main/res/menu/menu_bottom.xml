@@ -3,15 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/H"
         android:title="@string/home"
-        android:icon="@mipmap/home"/>
+        android:icon="@drawable/ic_baseline_home_24"/>
     <item android:id="@+id/TB"
         android:title="Thông báo"
-        android:icon="@mipmap/home"/>
+        android:icon="@drawable/icon_thongbao"/>
     <item android:id="@+id/GH"
         android:title="Giỏ hàng"
-        android:icon="@mipmap/icon_cart"/>
+        android:icon="@drawable/icon_giohang"/>
     <item android:id="@+id/CN"
         android:title="Cá nhân"
-        android:icon="@mipmap/home"/>
+        android:icon="@drawable/icon_persion"/>
 
 </menu>

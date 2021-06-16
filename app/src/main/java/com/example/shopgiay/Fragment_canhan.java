@@ -73,83 +73,25 @@ public class Fragment_canhan extends Fragment {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String s = array.get(position);
                     if(s.equals(TK)){
-                        Intent in = new Intent(view.getContext() , dangnhap_dangky.class);
+                        Intent in = new Intent(view.getContext() , XemthongtinUsers.class);
+                        in.putExtra("tk_use",TK);
                         startActivity(in);
                     }else {
                         if (s.equals("Cập nhật thông tin cá nhân")){
                             Intent in = new Intent(view.getContext() , Thongtin_cn.class);
                             in.putExtra("tk",TK);
                             startActivity(in);
+                        }else {
+                            if (s.equals("Đăng Xuất tài khoản")){
+                                Intent intent = new Intent(view.getContext() , Trangchu.class);
+                                startActivity(intent);
+                            }
                         }
 
                     }
                 }
             });
         }
-//        list = (ListView) view.findViewById(R.id.list_CN);
-//        array = new ArrayList<String>();
-//        adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1 , array);
-//        list.setAdapter(adapter);
-//        array.add("Đăng nhập/Đăng kí");
-//        array.add("Cập nhật thông tin cá nhân");
-//        array.add("Đã xem gần đây");
-//        array.add("Trung tâm trợ giúp");
-//        array.add("Đăng Xuất tài khoản");
-//        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String s = array.get(position);
-//                if(s.equals("Đăng nhập/Đăng kí")){
-//                    Intent in = new Intent(view.getContext() , dangnhap_dangky.class);
-//                    startActivity(in);
-//                }else {
-//
-//                }
-//            }
-//        });
-
-//        if(TK==null){
-//            list.setAdapter(adapter);
-//            array.add("Đăng nhập/Đăng kí");
-//            array.add("Cập nhật thông tin cá nhân");
-//            array.add("Đã xem gần đây");
-//            array.add("Trung tâm trợ giúp");
-//            array.add("Đăng Xuất tài khoản");
-//            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    String s = array.get(position);
-//                    if(s.equals("Đăng nhập/Đăng kí")){
-//                        Intent in = new Intent(view.getContext() , dangnhap_dangky.class);
-//                        startActivity(in);
-//                    }else {
-//
-//                    }
-//                }
-//            });
-//        }else {
-//            list.setAdapter(adapter);
-//            array.add(TK);
-//            array.add("Cập nhật thông tin cá nhân");
-//            array.add("Đã xem gần đây");
-//            array.add("Trung tâm trợ giúp");
-//            array.add("Đăng Xuất tài khoản");
-//            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    String s = array.get(position);
-//                    if(s.equals("Đăng nhập/Đăng kí")){
-//                        Intent in = new Intent(view.getContext() , dangnhap_dangky.class);
-//                        startActivity(in);
-//                    }else {
-//
-//                    }
-//                }
-//            });
-//        }
-
-
-
         return view;
     }
 

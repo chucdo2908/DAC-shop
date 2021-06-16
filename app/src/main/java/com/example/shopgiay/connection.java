@@ -42,6 +42,7 @@ public class connection extends SQLiteOpenHelper {
         statement.bindString(3,diachi);
         statement.bindString(4,sdt);
         statement.bindString(5,ngaysinh);
+        statement.executeInsert();
 
     }
     //select

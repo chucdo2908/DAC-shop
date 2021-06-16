@@ -20,8 +20,8 @@
         android:layout_alignParentBottom="true"
         android:background="#FF9190"
         app:menu="@menu/menu_bottom"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"/>
+        app:itemIconTint="#BCE6FF"
+        app:itemTextColor="#BCE6FF"/>
 
 
 </RelativeLayout>
