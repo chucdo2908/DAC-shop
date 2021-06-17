@@ -54,7 +54,6 @@ public class connection extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

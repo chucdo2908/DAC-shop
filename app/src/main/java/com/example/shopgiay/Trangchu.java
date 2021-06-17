@@ -29,7 +29,6 @@ public class Trangchu extends AppCompatActivity  {
     private BottomNavigationView nav;
     private ViewPager ViewP ;
     String TK ;
-    int id_tt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

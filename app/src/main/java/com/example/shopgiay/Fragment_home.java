@@ -1,5 +1,6 @@
 package com.example.shopgiay;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,6 +43,7 @@ public class Fragment_home extends Fragment    {
     private TextView sapxep , danhsach , dangbang;
     private EditText E_timkiem;
     private Button timkiem;
+    int id;
 
 
     public  Fragment_home() {
@@ -77,7 +79,7 @@ public class Fragment_home extends Fragment    {
 //                "Điểm nhấn của bản phối này chính là sự quay trở lại của tone màu đỏ rực rỡ trên dấu Swoosh và logo bóng rổ Jumpman. So với biểu tượng màu đen quen thuộc thì độ nổi bật và sức hút của tone màu này cao hơn rất nhiều.',40, 30,1000000,'https://shopgiayreplica.com/wp-content/uploads/2021/04/Jordan-1-Mid-Black-Chile-Red-White-800x600.jpg')");
         Cursor cursorSP = conn.GetData("SELECT * FROM SP");
         while (cursorSP.moveToNext()){
-            int id = cursorSP.getInt(0);
+            id = cursorSP.getInt(0);
             String ten = cursorSP.getString(1);
             String hang = cursorSP.getString(2);
             String thongtin = cursorSP.getString(3);
@@ -93,7 +95,10 @@ public class Fragment_home extends Fragment    {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 view.setBackgroundResource(R.drawable.bg_tt);
-                Toast.makeText(getActivity(),arrayList.get(position).Ten_sp ,Toast.LENGTH_SHORT).show();
+                int id_sp = arrayList.get(position).ID;
+                Intent intent = new Intent(getContext(),CT_sanpham.class);
+                intent.putExtra("id", id_sp);
+                startActivity(intent);
             }
         });
         //chức năng
@@ -135,7 +140,7 @@ public class Fragment_home extends Fragment    {
                     list.setAdapter(product);
                     Cursor cursorSP = conn.GetData("SELECT * FROM SP");
                     while (cursorSP.moveToNext()){
-                        int id = cursorSP.getInt(0);
+                        id = cursorSP.getInt(0);
                         String ten = cursorSP.getString(1);
                         String hang = cursorSP.getString(2);
                         String thongtin = cursorSP.getString(3);
@@ -151,7 +156,10 @@ public class Fragment_home extends Fragment    {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             view.setBackgroundResource(R.drawable.bg_tt);
-                            Toast.makeText(getActivity(),arrayList.get(position).Ten_sp ,Toast.LENGTH_SHORT).show();
+                            int id_sp = arrayList.get(position).ID;
+                            Intent intent = new Intent(getContext(),CT_sanpham.class);
+                            intent.putExtra("id", id_sp);
+                            startActivity(intent);
                         }
                     });
                     timkiem.setBackgroundResource(R.drawable.bg_cho);
@@ -165,7 +173,7 @@ public class Fragment_home extends Fragment    {
                     list.setAdapter(product);
                     Cursor cursorSP = conn.GetData("SELECT * FROM SP Where Ten_sp = '"+ tk + "'");
                     while (cursorSP.moveToNext()){
-                        int id = cursorSP.getInt(0);
+                        id = cursorSP.getInt(0);
                         String ten = cursorSP.getString(1);
                         String hang = cursorSP.getString(2);
                         String thongtin = cursorSP.getString(3);
@@ -181,7 +189,10 @@ public class Fragment_home extends Fragment    {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             view.setBackgroundResource(R.drawable.bg_tt);
-                            Toast.makeText(getActivity(),arrayList.get(position).Ten_sp ,Toast.LENGTH_SHORT).show();
+                            int id_sp = arrayList.get(position).ID;
+                            Intent intent = new Intent(getContext(),CT_sanpham.class);
+                            intent.putExtra("id", id_sp);
+                            startActivity(intent);
                         }
                     });
                 }
