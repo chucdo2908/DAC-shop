@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="10dp">
+    <ImageView
+        android:id="@+id/anh"
+        android:layout_width="70dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/ic_launcher"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/ten_hd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên Sản phẩm"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng mua : "
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:id="@+id/soluong_hd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Size"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="120dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày mua : "
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:id="@+id/ngaymua_hd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Size"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="120dp"
+            />
+        <TextView
+            android:id="@+id/gia_hd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gia sp"
+            android:textSize="20dp"
+            android:layout_marginLeft="180dp"
+            android:textColor="#B34848"
+            android:textStyle="bold"
+            android:layout_marginTop="95dp"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

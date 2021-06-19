@@ -29,12 +29,14 @@ public class Trangchu extends AppCompatActivity  {
     private BottomNavigationView nav;
     private ViewPager ViewP ;
     String TK ;
+    int id_use;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trangchu);
         Intent i = getIntent();
         TK = i.getStringExtra("ten_tk");
+        id_use = i.getIntExtra("id_user",0);
         nav = findViewById(R.id.navl);
         ViewP = findViewById(R.id.viewpger);
         LoadViewpager();
@@ -65,6 +67,7 @@ public class Trangchu extends AppCompatActivity  {
 
         ViewpagerAdapter viewpagerAdapter = new ViewpagerAdapter(getSupportFragmentManager() , FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         ViewP.setAdapter(viewpagerAdapter);
+        ViewP.setOffscreenPageLimit(0);
         ViewP.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

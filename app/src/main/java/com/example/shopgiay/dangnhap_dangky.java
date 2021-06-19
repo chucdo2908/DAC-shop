@@ -20,6 +20,7 @@ public class dangnhap_dangky extends AppCompatActivity {
     private EditText txt_mk , txt_tk;
     private TextView quen_mk;
     private Button btn_dn , btn_dk;
+    int id_use;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +47,13 @@ public class dangnhap_dangky extends AppCompatActivity {
                 }else {
                     Cursor cursor = conn.GetData("SELECT * FROM TK_User WHERE Taikhoan = '" + a + "' AND " + " Matkhau = '" + b + "'");
                     if(cursor.getCount()!=0){
+                        while (cursor.moveToNext()){
+                            id_use = cursor.getInt(0);
+                        }
                         Toast.makeText(getApplicationContext(),"Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(dangnhap_dangky.this,Trangchu.class);
                         intent.putExtra("ten_tk" , a);
+                        intent.putExtra("id_user" , id_use);
                        startActivity(intent);
                     } else {
                         Toast.makeText(getApplicationContext(),"Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();

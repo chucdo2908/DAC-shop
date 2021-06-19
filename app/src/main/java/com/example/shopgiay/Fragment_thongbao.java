@@ -16,4 +16,8 @@ public class Fragment_thongbao extends Fragment {
         View view = inflater.inflate(R.layout.fragment_thongbao , container , false);
         return view;
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }

@@ -53,6 +53,8 @@ public class Fragment_home extends Fragment    {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home , container , false);
+        Trangchu trangchu1 = (Trangchu) getActivity();
+        int id_u = trangchu1.id_use;
         //load slide ...
         viewpager = view.findViewById(R.id.viewpager1);
         circleIndicator = view.findViewById(R.id.Cir);
@@ -98,6 +100,7 @@ public class Fragment_home extends Fragment    {
                 int id_sp = arrayList.get(position).ID;
                 Intent intent = new Intent(getContext(),CT_sanpham.class);
                 intent.putExtra("id", id_sp);
+                intent.putExtra("id_use" , id_u);
                 startActivity(intent);
             }
         });
@@ -248,4 +251,8 @@ public class Fragment_home extends Fragment    {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }

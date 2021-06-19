@@ -94,6 +94,9 @@ public class Fragment_canhan extends Fragment {
         }
         return view;
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
 }

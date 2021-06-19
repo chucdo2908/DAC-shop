@@ -45,6 +45,22 @@ public class connection extends SQLiteOpenHelper {
         statement.executeInsert();
 
     }
+    public void QueryDonHang(int id_sp , int id_tk ,String ten_sp , int soluong , float tonggia , int size , String ten_use , String diachi , String sdt , String ngaymua){
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "INSERT INTO DonHang VALUES(null ,? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
+        SQLiteStatement statement = db.compileStatement(sql);
+        statement.bindDouble(1 , id_sp);
+        statement.bindDouble(2 , id_tk);
+        statement.bindString(3 , ten_sp);
+        statement.bindDouble(4 , soluong);
+        statement.bindDouble(5 , tonggia);
+        statement.bindDouble(6 , size);
+        statement.bindString(7 , ten_use);
+        statement.bindString(8 , diachi);
+        statement.bindString(9 , sdt);
+        statement.bindString(10 , ngaymua);
+        statement.executeInsert();
+    }
     //select
     public Cursor GetData(String sql){
         SQLiteDatabase db = getWritableDatabase();

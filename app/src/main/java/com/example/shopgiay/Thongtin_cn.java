@@ -58,6 +58,7 @@ public class Thongtin_cn extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Cập nhật thành công !!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Thongtin_cn.this, Trangchu.class);
                         intent.putExtra("ten_tk", TK);
+                        intent.putExtra("id_user" , id);
                         startActivity(intent);
                     }
                 });
@@ -70,6 +71,7 @@ public class Thongtin_cn extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Thongtin_cn.this, Trangchu.class);
                 intent.putExtra("ten_tk", TK);
+                intent.putExtra("id_user" , id);
                 startActivity(intent);
             }
         });
