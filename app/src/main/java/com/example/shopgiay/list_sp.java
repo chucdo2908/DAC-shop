@@ -75,7 +75,7 @@ public class list_sp extends BaseAdapter implements Filterable {
 
         SP.ten.setText(arraySP.get(position).Ten_sp);
         SP.size_sp.setText(dec.format(arraySP.get(position).Size));
-        SP.giaSP.setText(dec.format(arraySP.get(position).Gia) + "vnđ");
+        SP.giaSP.setText(dec.format(arraySP.get(position).Gia) + " Đ");
         Glide.with(con).load(arraySP.get(position).img).into(SP.img);
         id = new Integer(arraySP.get(position).ID).toString();
         return viewrow;

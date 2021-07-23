@@ -21,7 +21,7 @@ public class Fragment_giohang extends Fragment {
     ListView list ;
     ArrayList<Donhang> arrayList = new ArrayList<>();
     listAdapter_donhang product ;
-    int id_sp , id,id_use , soluong , gia ;
+    int id_sp , id_dh,id_use , soluong , gia ;
     String ten_sp ,  ten_user , diachi , sdt , ngaymua , hinhanh ;
     @Nullable
     @Override
@@ -36,7 +36,7 @@ public class Fragment_giohang extends Fragment {
         list.setAdapter(product);
         Cursor cursorHD = conn.GetData("Select * FROM DonHang WHERE ID_TK = "+ id_use +" ");
         while (cursorHD.moveToNext()){
-             id = cursorHD.getInt(0);
+             id_dh = cursorHD.getInt(0);
              id_sp = cursorHD.getInt(1);
              ten_sp = cursorHD.getString(3);
              ten_user = cursorHD.getString(7);
@@ -49,14 +49,15 @@ public class Fragment_giohang extends Fragment {
             while (cursorHD1.moveToNext()){
                 hinhanh = cursorHD1.getString(7);
             }
-            Donhang donhang = new Donhang(id,id_sp,id_use,soluong,gia,ten_sp,ten_user,diachi,sdt,ngaymua,hinhanh);
+            Donhang donhang = new Donhang(id_dh,id_sp,id_use,soluong,gia,ten_sp,ten_user,diachi,sdt,ngaymua,hinhanh);
             arrayList.add(donhang);
         }
         product.notifyDataSetChanged();
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                    Intent intent = new Intent(getActivity() , CT_donhang.class);
+                    intent.putExtra("id" , id_dh);
             }
         });
         return view;

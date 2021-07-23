@@ -2,107 +2,146 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4ADEDE"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:paddingTop="5dp">
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="47dp"
-        android:src="@mipmap/ic_banner"
-        />
-
-    <EditText
-        android:id="@+id/timkiem"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="60dp"
-        android:hint=" Tìm kiếm..."
-        android:textColor="@color/white"
-        android:background="@drawable/bg_cho"/>
-    <Button
-        android:id="@+id/btntk"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="Tìm kiếm"
-        android:background="@drawable/bg_cho"
-        android:layout_marginLeft="320dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/white">
+        <EditText
+            android:id="@+id/timkiem"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:hint=" Tìm kiếm..."
+            android:textColor="@color/white"
+            android:background="@drawable/bg_cho"/>
+    </androidx.cardview.widget.CardView>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager1"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="42dp"
-        />
-    <me.relex.circleindicator.CircleIndicator
-        android:id="@+id/Cir"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:layout_marginTop="170dp"
-        android:layout_gravity="center_horizontal"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="200dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:background="#FF9190">
-        <TextView
-            android:id="@+id/sapxep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="▲▼"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="10dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/white">
+        <Button
+            android:id="@+id/btntk"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:text="Tìm kiếm"
+            android:textStyle="normal"
             android:textSize="10dp"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/black"
+            android:background="@drawable/bg_cho" />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/white">
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
             />
-        <TextView
-            android:id="@+id/danhsach"
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/Cir"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dạng danh sách"
-            android:textSize="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:id="@+id/dangbang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dạng bảng"
-            android:textSize="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:id="@+id/banchay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bán chạy"
-            android:textSize="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:id="@+id/phobien"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phổ biến"
-            android:textSize="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/black"
-            />
+            android:layout_height="16dp"
+            android:layout_marginTop="125dp"
+            android:layout_gravity="center_horizontal"/>
+    </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/listt"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:background="#4ADEDE"/>
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="205dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/sapxep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▲▼"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/danhsach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dạng danh sách"
+                android:textSize="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/dangbang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dạng bảng"
+                android:textSize="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/banchay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bán chạy"
+                android:textSize="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/phobien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phổ biến"
+                android:textSize="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+        <ListView
+            android:id="@+id/listt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="245dp"
+            android:background="@color/white"/>
+
+
+
 
 
 

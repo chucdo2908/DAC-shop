@@ -96,7 +96,6 @@ public class Fragment_home extends Fragment    {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                view.setBackgroundResource(R.drawable.bg_tt);
                 int id_sp = arrayList.get(position).ID;
                 Intent intent = new Intent(getContext(),CT_sanpham.class);
                 intent.putExtra("id", id_sp);
@@ -158,7 +157,6 @@ public class Fragment_home extends Fragment    {
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            view.setBackgroundResource(R.drawable.bg_tt);
                             int id_sp = arrayList.get(position).ID;
                             Intent intent = new Intent(getContext(),CT_sanpham.class);
                             intent.putExtra("id", id_sp);
@@ -191,7 +189,6 @@ public class Fragment_home extends Fragment    {
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            view.setBackgroundResource(R.drawable.bg_tt);
                             int id_sp = arrayList.get(position).ID;
                             Intent intent = new Intent(getContext(),CT_sanpham.class);
                             intent.putExtra("id", id_sp);

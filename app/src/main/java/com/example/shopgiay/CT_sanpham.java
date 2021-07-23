@@ -82,19 +82,25 @@ public class CT_sanpham extends AppCompatActivity {
                         String ten_use = Ten_use;
                         String diachi_use = diachi;
                         String sdt_use = sdt;
-                        conn.QueryData("CREATE TABLE IF NOT EXISTS DonHang" +
-                                "(ID_DH INTEGER PRIMARY KEY AUTOINCREMENT ,ID INTEGER,ID_TK INTEGER, Ten_sp VARCHAR" +
-                                " , Soluongmua INTERGER , Tonggia Float , Size INTRGER , Ten_use VARCHAR , Diachi VARCHAR" +
-                                ",sdt VARCHAR , NgayMua Date , FOREIGN KEY(ID_TK)  REFERENCES TK_User(ID_TK)," +
-                                "FOREIGN KEY(ID)  REFERENCES SP(ID))");
-                    try {
-                        conn.QueryDonHang(id,id_user,Ten , soluongmua , tonggia , size_sp , ten_use , diachi_use , sdt_use , ngaymua);
-                        Toast.makeText(getApplicationContext(), "Đã đặt hàng !!", Toast.LENGTH_SHORT).show();
-                        conn.QueryData("UPDATE SP SET Soluong = "+soluongcon+" Where ID =" + id + " ");
-                        Mua.setBackgroundResource(R.drawable.bg_tktt);
-                    } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-                    }
+                        if(soluongmua<soluongcon){
+
+                            conn.QueryData("CREATE TABLE IF NOT EXISTS DonHang" +
+                                    "(ID_DH INTEGER PRIMARY KEY AUTOINCREMENT ,ID INTEGER,ID_TK INTEGER, Ten_sp VARCHAR" +
+                                    " , Soluongmua INTERGER , Tonggia Float , Size INTRGER , Ten_use VARCHAR , Diachi VARCHAR" +
+                                    ",sdt VARCHAR , NgayMua Date , FOREIGN KEY(ID_TK)  REFERENCES TK_User(ID_TK)," +
+                                    "FOREIGN KEY(ID)  REFERENCES SP(ID))");
+                            try {
+                                conn.QueryDonHang(id,id_user,Ten , soluongmua , tonggia , size_sp , ten_use , diachi_use , sdt_use , ngaymua);
+                                Toast.makeText(getApplicationContext(), "Đã đặt hàng !!", Toast.LENGTH_SHORT).show();
+                                conn.QueryData("UPDATE SP SET Soluong = "+soluongcon+" Where ID =" + id + " ");
+                                Mua.setBackgroundResource(R.drawable.bg_tktt);
+                            } catch (Exception e) {
+                                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                    }else {
+                            Toast.makeText(getApplicationContext(), "Số lượng bạn nhập lỗi", Toast.LENGTH_SHORT).show();
+                        }
+
                 }else {
                     Mua.setBackgroundResource(R.drawable.bg_tktt);
                     Toast.makeText(getApplicationContext(),"bạn chưa đăng nhập hoặc cập nhật thông tin",Toast.LENGTH_SHORT).show();

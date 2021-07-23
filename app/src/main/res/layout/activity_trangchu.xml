@@ -10,18 +10,18 @@
         android:id="@+id/viewpger"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/navl"
-        >
- </androidx.viewpager.widget.ViewPager>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#FF9190"
-        app:menu="@menu/menu_bottom"
-        app:itemIconTint="#BCE6FF"
-        app:itemTextColor="#BCE6FF"/>
+        android:layout_above="@+id/navl"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#FF9190"
+            app:menu="@menu/menu_bottom"
+            app:itemIconTint="#BCE6FF"
+            app:itemTextColor="#BCE6FF"/>
+
 
 
 </RelativeLayout>

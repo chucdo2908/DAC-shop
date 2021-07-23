@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class XemthongtinUsers extends AppCompatActivity {
     TextView ten , diachi , sdt , ngaysinh , taikhoan;
     Button thoat;
+    int id ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class XemthongtinUsers extends AppCompatActivity {
         Cursor cursor = conn.GetData("SELECT * FROM TK_User WHERE Taikhoan = '" + tk + "'");
         while (cursor.moveToNext()){
             taikhoan.setText(cursor.getString(1));
-            int id = cursor.getInt(0);
+            id = cursor.getInt(0);
             Cursor cursor1 = conn.GetData("SELECT * FROM TT_Users WHERE ID_TK = " + id + "");
             while(cursor1.moveToNext()){
                 ten.setText(cursor1.getString(2));
@@ -37,6 +38,7 @@ public class XemthongtinUsers extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(XemthongtinUsers.this,Trangchu.class);
                 intent.putExtra("ten_tk" , tk);
+                intent.putExtra("id_user" , id);
                 startActivity(intent);
             }
         });
